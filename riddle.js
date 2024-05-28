@@ -37,7 +37,33 @@ var second_hints;
 var try_count = 5;
 var try_counter_text = "";
 
+var showModal;
+
+function setupPage() {
+	loadRiddle();
+	// modal
+	var modal = document.getElementById("success-modal");
+	var btn = document.getElementById("myBtn");
+	var span = document.getElementsByClassName("close")[0];
+
+	showModal = function() {
+		modal.style.display = "block";
+	}
+
+	// close the modal
+	span.onclick = function() {
+		modal.style.display = "none";
+	}
+
+	window.onclick = function(event) {
+		if (event.target == modal) {
+			modal.style.display = "none";
+		}
+	}
+}
+
 function loadRiddle() {
+
 	var n = Math.floor(Math.random() * (riddle_array.length / 4))
 
 	date = riddle_array[n*4][0];
@@ -77,19 +103,20 @@ function checkSolution() {
 		inp_solution.disabled = true;
 		
 		spendTry("✔️");
+		showModal();
 	} else {
 		spendTry("❌");
 	}
 }
 
 function revealHint(i) {
-	spendTry(hint_names[i][1]);
 	if (try_count <= 1) {
 		return;
 	}
 
 	document.getElementById(hint_names[i][0]).innerHTML += "<br><i>" + second_hints[i] + "</i>";
 	document.getElementById(hint_names[i][0]).disabled = true;
+	spendTry(hint_names[i][1]);
 }
 
 function spendTry(chr) {
