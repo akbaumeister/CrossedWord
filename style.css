@@ -1,3 +1,35 @@
 h1 {
     font-family: 'Courier New', Courier, monospace;
 }
+
+.window{
+  align-content: center;
+  }
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 250px 250px 250px;
+  grid-template-rows: auto;
+}
+
+.grid-item {
+  align-content: center;
+  text-align: center;
+}
+
+.grid-item.yellow {
+  background-color: rgb(252, 198, 3);
+}
+
+.grid-item.blue {
+  background-color: rgb(68, 129, 194);
+}
+
+.grid-item.green {
+  background-color: rgb(170, 209, 63);
+}
+
+.grid-item.purple {
+  background-color: rgb(149, 81, 176);
+}
+
