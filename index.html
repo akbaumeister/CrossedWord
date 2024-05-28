@@ -1,6 +1,5 @@
 <html>
     <head>
-        <script src="papaparse.min.js"></script>
         <link rel="stylesheet" href="style.css">
         <title>Crossed Word</title>
     </head>
@@ -8,13 +7,14 @@
         <script src="riddle.js"></script>
        
         <div class="window">
-          <h1>Crossed Word</h1>
-          <p id="datetime"></p>
+          <h1>Crossed Word <div id="date"></div></h1>
 
           <script>
-            var now = new Date();
-            var datetime = now.toLocaleString();
-            document.getElementById("datetime").innerHTML = datetime;
+            var n =  new Date();
+            y = n.getFullYear();
+						m = n.getMonth() + 1;
+						d = n.getDate();
+            document.getElementById("date").innerHTML = m + "/" + d + "/" + y;
           </script>
           
           <div class="grid-container">
@@ -22,10 +22,10 @@
             <div id="yellow-hint" class="grid-item yellow">2</div>
             <div class="grid-item"></div>
             <div id ="blue-hint" class="grid-item blue">4</div>
+            <div id ="center-hint" class="grid-item"></div>
+            <div id="green-hint" class="grid-item green">6</div>
             <div class="grid-item"></div>
-            <div class="grid-item green">6</div>
-            <div class="grid-item"></div>
-            <div class="grid-item purple">8</div>
+            <div id="purple-hint" class="grid-item purple">8</div>
             <div class="grid-item"></div>
           </div>
           
@@ -33,15 +33,15 @@
           
           <div class="grid-container">
             <div class="grid-item"></div>
-            <div class="grid-item yellow">2</div>
+            <div id="yellow-clue" class="grid-item yellow">2</div>
             <div class="grid-item"></div>
-            <div class="grid-item blue">4</div>
+            <div id="blue-clue" class="grid-item blue">4</div>
             <div class="grid-item">
               <input id ="inp_solution" placeholder="your guess">
             </div>
-            <div class="grid-item green">6</div>
+            <div id="green-clue" class="grid-item green">6</div>
             <div class="grid-item"></div>
-            <div class="grid-item purple">8</div>
+            <div id="purple-clue" class="grid-item purple">8</div>
             <div class="grid-item"></div>
           </div>
           
