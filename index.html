@@ -20,13 +20,13 @@
           
           <div class="grid-container">
             <div class="grid-item"></div>
-            <div id="yellow-hint" class="grid-item yellow">2</div>
+            <button id="yellow-hint" class="grid-item yellow" onclick="revealHint(0)">2</button>
             <div class="grid-item"></div>
-            <div id ="blue-hint" class="grid-item blue">4</div>
+            <button id ="blue-hint" class="grid-item blue" onclick="revealHint(1)">4</button>
             <div id ="center-hint" class="grid-item"></div>
-            <div id="green-hint" class="grid-item green">6</div>
+            <button id="green-hint" class="grid-item green" onclick="revealHint(2)">6</button>
             <div class="grid-item"></div>
-            <div id="purple-hint" class="grid-item purple">8</div>
+            <button id="purple-hint" class="grid-item purple" onclick="revealHint(3)">8</button>
             <div class="grid-item"></div>
           </div>
           
@@ -47,8 +47,8 @@
           </div>
           
           <button id="btn-check-solution" type="button" onclick="checkSolution()"> check</button>
+          <div id="try-counter">🔵🔵🔵🔵🔵</div>
           <div id="prompt">Enter your solution in the grid and press 'check'</div>
-          
         </div>
    
     </body>

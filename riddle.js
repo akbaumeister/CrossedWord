@@ -21,11 +21,21 @@ Papa.parse(riddle_file, {
 
 console.log("Loaded riddles:", riddle_array);
 
+var hint_names = [
+	["yellow-hint", "🟨"],
+	["blue-hint", "🟦"],
+	["green-hint", "🟩"],
+	["purple-hint", "🟪"],
+]
+
 var date;
 var hints;
 var clues;
 var solution;
 var second_hints;
+
+var try_count = 5;
+var try_counter_text = "";
 
 function loadRiddle() {
 	var n = Math.floor(Math.random() * (riddle_array.length / 4))
@@ -60,12 +70,45 @@ function loadRiddle() {
 function checkSolution() {
 	console.log("Checking solution!");
 	var inp_solution = document.getElementById("inp-solution");
+
 	if(inp_solution.value.toLowerCase() 
 		=== solution.toLowerCase()) {
 		document.getElementById("prompt").innerHTML = "Solution found!";
-		console.log("Solution found!");
 		inp_solution.disabled = true;
+		
+		spendTry("✔️");
 	} else {
-		console.log("Try again!");
+		spendTry("❌");
 	}
+}
+
+function revealHint(i) {
+	spendTry(hint_names[i][1]);
+	if (try_count <= 1) {
+		return;
+	}
+
+	document.getElementById(hint_names[i][0]).innerHTML += "<br><i>" + second_hints[i] + "</i>";
+	document.getElementById(hint_names[i][0]).disabled = true;
+}
+
+function spendTry(chr) {
+	if (try_count <= 0) {
+		return;
+	}
+
+	if (try_count > 0) {
+		try_count -= 1;
+	}
+	if (try_count <= 1) {
+		for (let i = 0; i < 4; i++) {
+			document.getElementById(hint_names[i][0]).disabled = true;
+		}
+	}
+	if (try_count <= 0) {
+		document.getElementById("inp-solution").disabled = true;
+	}
+
+	try_counter_text += chr;
+	document.getElementById("try-counter").innerHTML = try_counter_text + "🔵".repeat(try_count);
 }
