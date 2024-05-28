@@ -57,4 +57,15 @@ function loadRiddle() {
 	document.getElementById("purple-clue").innerHTML = clues[3];
 }
 
-loadRiddle();
+function checkSolution() {
+	console.log("Checking solution!");
+	var inp_solution = document.getElementById("inp-solution");
+	if(inp_solution.value.toLowerCase() 
+		=== solution.toLowerCase()) {
+		document.getElementById("prompt").innerHTML = "Solution found!";
+		console.log("Solution found!");
+		inp_solution.disabled = true;
+	} else {
+		console.log("Try again!");
+	}
+}
