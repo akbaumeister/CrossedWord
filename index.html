@@ -9,29 +9,44 @@
        
         <div class="window">
           <h1>Crossed Word</h1>
-          <div class="grid-container">
-            <div class="grid-item">1</div>
-            <div class="grid-item yellow">2</div>
-            <div class="grid-item">3</div>
-            <div class="grid-item blue">4</div>
-            <div class="grid-item">5</div>
-            <div class="grid-item green">6</div>
-            <div class="grid-item">7</div>
-            <div class="grid-item purple">8</div>
-            <div class="grid-item">9</div>
-          </div>
+          <p id="datetime"></p>
+
+          <script>
+            var now = new Date();
+            var datetime = now.toLocaleString();
+            document.getElementById("datetime").innerHTML = datetime;
+          </script>
           
           <div class="grid-container">
-            <div class="grid-item">1</div>
-            <div class="grid-item yellow">2</div>
-            <div class="grid-item">3</div>
-            <div class="grid-item blue">4</div>
-            <div class="grid-item">5</div>
+            <div class="grid-item"></div>
+            <div id="yellow-hint" class="grid-item yellow">2</div>
+            <div class="grid-item"></div>
+            <div id ="blue-hint" class="grid-item blue">4</div>
+            <div class="grid-item"></div>
             <div class="grid-item green">6</div>
-            <div class="grid-item">7</div>
+            <div class="grid-item"></div>
             <div class="grid-item purple">8</div>
-            <div class="grid-item">9</div>
+            <div class="grid-item"></div>
           </div>
+          
+          <br>
+          
+          <div class="grid-container">
+            <div class="grid-item"></div>
+            <div class="grid-item yellow">2</div>
+            <div class="grid-item"></div>
+            <div class="grid-item blue">4</div>
+            <div class="grid-item">
+              <input id ="inp_solution" placeholder="your guess">
+            </div>
+            <div class="grid-item green">6</div>
+            <div class="grid-item"></div>
+            <div class="grid-item purple">8</div>
+            <div class="grid-item"></div>
+          </div>
+          
+          <button id="btn-check-solution" type="button" onclick="checkSolution()"> check</button>
+          <div>Enter your solution in the grid and press 'check'</div>
           
         </div>
    
