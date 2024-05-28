@@ -9,14 +9,17 @@ function loadFile(filePath) {
 	return result;
 }
 
-var all_riddles = loadFile("all_riddles.csv");
+var riddle_file = loadFile("all_riddles.csv");
+var riddle_array;
 
 // Parse local CSV file
 Papa.parse(all_riddles, {
 	complete: function(results) {
-		console.log("Finished:", results.data);
+		riddle_array = results.data;
 	}
 });
+
+console.log("Loaded riddles:", riddle_array);
 
 function clickMe() {
     console.log("Clicked!");
